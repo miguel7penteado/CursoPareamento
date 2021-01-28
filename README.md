@@ -1,5 +1,5 @@
 # Curso de Pareamento de DataSets com PNADC
 
-## Deterministico x Probabilistico
+## Determinístico x Probabilístico
 
 (Gerando BookDown)
