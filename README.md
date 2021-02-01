@@ -36,3 +36,14 @@ expectation maximization
 A blocagem 
 1o deterministico => nome sexo data_nasc 
 2o probabilística
+
+Peso M = log2 M/U
+
+Peso U = log2 (1-M)/(1-U)
+
+Pesso Missing = (pesoM + PesoU)/2
+
+Peso M = log2 (1)/freq_relativa
+
+
+
