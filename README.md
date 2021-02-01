@@ -54,4 +54,10 @@ Peso M = log2 (1)/freq_relativa
 * Selecione registros semelhantes na mesma base
 * Atributos de registros (elementos) semelhantes => Notas
 
+## 2.2 - Pós-Processamento
+Resultado pareamento em pares => Clusterização => Geração de Identificadores Únicos
+
+## 2.3 - Avaliação de um Pareamento
+* Falso Positivo => neste processo, pareou mas errou
+* Falso Negativo => neste processo, deixou de parear
 
