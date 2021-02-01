@@ -45,5 +45,12 @@ Pesso Missing = (pesoM + PesoU)/2
 
 Peso M = log2 (1)/freq_relativa
 
+## Comparação
+
+"Chave primária ?" => sonho meu...
+Deduplicação:
+Selecine os registros com que vai trabalhar
+Selecione registros semelhantes na mesma base
+Atributos de registros (elementos) semelhantes => Notas
 
 
