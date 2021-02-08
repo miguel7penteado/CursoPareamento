@@ -122,7 +122,7 @@ EOF
 psql -U administrador-banco -h 127.0.0.1 -d "curso-pareamento-ibge"  -a  <<EOF 
 COPY "dados-importados-butos".tabela_final_telefone
 FROM '/tmp/a/tabela_final_telefone.csv'
-DELIMITER '|' CSV HEADER;
+DELIMITER ';' CSV HEADER;
 EOF
 ```
 
