@@ -151,7 +151,6 @@ Retirando acentuação de todos os caracteres.
         public.retira_acentuacao(text)
 */
 
-
 DROP FUNCTION IF EXISTS public.retira_acentuacao(text);
 
 CREATE OR REPLACE FUNCTION public.retira_acentuacao(p_texto text)
