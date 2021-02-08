@@ -146,6 +146,27 @@ Vamos deixar todos os caracteres em caixa baixa.
 Retirando acentuação de todos os caracteres.
 
 ```sql
+/*
+        Criando uma função para retirar acentuação 
+        public.retira_acentuacao(text)
+*/
+
+
+DROP FUNCTION IF EXISTS public.retira_acentuacao(text);
+
+CREATE OR REPLACE FUNCTION public.retira_acentuacao(p_texto text)
+  RETURNS text AS
+$BODY$  
+        Select translate($1,  
+        'áàâãäåaaaÁÂÃÄÅAAAÀéèêëeeeeeEEEÉEEÈìíîïìiiiÌÍÎÏÌIIIóôõöoooòÒÓÔÕÖOOOùúûüuuuuÙÚÛÜUUUUçÇñÑýÝ',  
+        'aaaaaaaaaAAAAAAAAAeeeeeeeeeEEEEEEEiiiiiiiiIIIIIIIIooooooooOOOOOOOOuuuuuuuuUUUUUUUUcCnNyY'   
+        );  
+$BODY$
+  LANGUAGE sql VOLATILE
+  COST 100;
+ALTER FUNCTION public.retira_acentuacao(text)
+  OWNER TO "administrador-banco";
+
 
 ```
 
