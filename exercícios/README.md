@@ -178,7 +178,7 @@ Nome sem acentuação
 
 DROP TABLE IF EXISTS "dados-importados-butos".tabela_final_telefone_tmp;
 SELECT 
-	"Nome", "Municipio", "Telefone", "Logradouro", "Bairro"
+	public.retira_acentuacao("Nome") as "Nome", "Municipio", "Telefone", "Logradouro", "Bairro"
 INTO
 	"dados-importados-butos".tabela_final_telefone_tmp
 FROM 
@@ -192,5 +192,35 @@ ORDER BY
 Vamos deixar todos os caracteres em caixa baixa.
 
 ```sql
+/*
+Criando tabela temporária tabela_final_sem_telefone_tmp2 com a coluna
+Nome em minúsculo
+*/
+
+DROP TABLE IF EXISTS "dados-importados-butos".tabela_final_sem_telefone_tmp2;
+SELECT 
+	lower("Nome") as "Nome", "Endereco", "Municipio"
+INTO
+	"dados-importados-butos".tabela_final_sem_telefone_tmp2
+FROM
+	"dados-importados-butos".tabela_final_sem_telefone_tmp
+ORDER BY
+	"Municipio";
+
+/*
+Criando tabela temporária tabela_final_telefone_tmp com a coluna
+Nome em minúsculo
+*/
+
+DROP TABLE IF EXISTS "dados-importados-butos".tabela_final_telefone_tmp2;
+SELECT 
+	lower("Nome") as "Nome", "Municipio", "Telefone", "Logradouro", "Bairro"
+INTO
+	"dados-importados-butos".tabela_final_telefone_tmp2
+FROM 
+	"dados-importados-butos".tabela_final_telefone_tmp
+ORDER BY
+	"Municipio";
+	
 
 ```
