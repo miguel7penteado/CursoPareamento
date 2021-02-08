@@ -112,8 +112,17 @@ ALTER TABLE "dados-importados-butos".tabela_final_telefone OWNER TO "administrad
 mkdir -p /tmp/a 
 cp tabela_final_sem_telefone.csv /tmp/a
 cp tabela_final_telefone.csv     /tmp/a
-psql -U administrador-banco -h 127.0.0.1 -d "curso-pareamento-ibge"  -a  <<EOF 
 
+psql -U administrador-banco -h 127.0.0.1 -d "curso-pareamento-ibge"  -a  <<EOF 
+COPY "dados-importados-butos".tabela_final_sem_telefone
+FROM '/tmp/a/tabela_final_sem_telefone.csv'
+DELIMITER '|' CSV HEADER;
+EOF
+
+psql -U administrador-banco -h 127.0.0.1 -d "curso-pareamento-ibge"  -a  <<EOF 
+COPY "dados-importados-butos".tabela_final_telefone
+FROM '/tmp/a/tabela_final_telefone.csv'
+DELIMITER '|' CSV HEADER;
 EOF
 ```
 
