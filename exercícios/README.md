@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS "dados-importados-butos".tabela_final_telefone
 	"Nome"      character varying(500),
 	"Municipio" character varying(500),
 	"Telefone"  character varying(500),
-	"Logrdouro" character varying(500),
+	"Logradouro" character varying(500),
 	"Bairro"    character varying(500)
 )
 WITH ( OIDS=FALSE );
