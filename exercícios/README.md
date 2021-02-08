@@ -136,4 +136,16 @@ EOF
  - Separação dos campos e determinação dos conjuntos;
  - Tipos de Dados;
 
+#### 1.1.5.1 Padronização de caixa de caracteres
+Vamos deixar todos os caracteres em caixa baixa.
+
+```sql
+
+```
+#### 1.1.5.2 Padronização de acentuação de caracteres
+Retirando acentuação de todos os caracteres.
+
+```sql
+
+```
 
