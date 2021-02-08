@@ -136,13 +136,7 @@ EOF
  - Separação dos campos e determinação dos conjuntos;
  - Tipos de Dados;
 
-#### 1.1.5.1 Padronização de caixa de caracteres
-Vamos deixar todos os caracteres em caixa baixa.
-
-```sql
-
-```
-#### 1.1.5.2 Padronização de acentuação de caracteres
+#### 1.1.5.1 Padronização de acentuação de caracteres
 Retirando acentuação de todos os caracteres.
 
 ```sql
@@ -150,8 +144,6 @@ Retirando acentuação de todos os caracteres.
         Criando uma função para retirar acentuação 
         public.retira_acentuacao(text)
 */
-
-DROP FUNCTION IF EXISTS public.retira_acentuacao(text);
 
 CREATE OR REPLACE FUNCTION public.retira_acentuacao(p_texto text)
   RETURNS text AS
@@ -161,11 +153,44 @@ $BODY$
         'aaaaaaaaaAAAAAAAAAeeeeeeeeeEEEEEEEiiiiiiiiIIIIIIIIooooooooOOOOOOOOuuuuuuuuUUUUUUUUcCnNyY'   
         );  
 $BODY$
-  LANGUAGE sql VOLATILE
-  COST 100;
-ALTER FUNCTION public.retira_acentuacao(text)
-  OWNER TO "administrador-banco";
+LANGUAGE sql VOLATILE COST 100;
+ALTER FUNCTION public.retira_acentuacao(text) OWNER TO "administrador-banco";
 
+/*
+Criando tabela temporária tabela_final_sem_telefone_tmp com a coluna
+Nome sem acentuação
+*/
 
+DROP TABLE IF EXISTS "dados-importados-butos".tabela_final_sem_telefone_tmp;
+SELECT 
+	public.retira_acentuacao("Nome") as "Nome", "Endereco", "Municipio"
+INTO
+	"dados-importados-butos".tabela_final_sem_telefone_tmp
+FROM
+	"dados-importados-butos".tabela_final_sem_telefone
+ORDER BY
+	"Municipio";
+
+/*
+Criando tabela temporária tabela_final_telefone_tmp com a coluna
+Nome sem acentuação
+*/
+
+DROP TABLE IF EXISTS "dados-importados-butos".tabela_final_telefone_tmp;
+SELECT 
+	"Nome", "Municipio", "Telefone", "Logradouro", "Bairro"
+INTO
+	"dados-importados-butos".tabela_final_telefone_tmp
+FROM 
+	"dados-importados-butos".tabela_final_telefone
+ORDER BY
+	"Municipio";
+	
 ```
 
+#### 1.1.5.2 Padronização de caixa de caracteres
+Vamos deixar todos os caracteres em caixa baixa.
+
+```sql
+
+```
