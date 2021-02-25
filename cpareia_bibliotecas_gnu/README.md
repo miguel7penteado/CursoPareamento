@@ -11,5 +11,5 @@
 
 # Matriz de dependência entre as bibliotecas:
 
-![](imagens/bibliotecas.jpg)
+![](imagens/bibliotecas.png)
 
