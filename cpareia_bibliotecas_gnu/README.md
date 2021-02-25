@@ -1,5 +1,4 @@
-# Bibliotecas: Dependências de Bibliotecas para portar para Windows
-
+# Bibliotecas abertas GNU: Dependências de Bibliotecas para portar para Windows
 
 - libxml2
 - libxslt
@@ -13,3 +12,5 @@
 
 ![](imagens/bibliotecas.png)
 
+# Bibloteca DLL do windows (fechada)
+- msvcrt.dll
